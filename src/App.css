@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  align-items: stretch;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

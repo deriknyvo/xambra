@@ -1,0 +1,17 @@
+.item-icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item-icon .label,
+.item-icon .icon,
+.item-icon .total {
+  font-size: 13px;
+  text-align: center;
+  padding: 5px;
+}
+
+.item-icon .total {
+  margin-left: auto;
+}
