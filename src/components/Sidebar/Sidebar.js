@@ -1,30 +1,35 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Sidebar.css';
 
+import CriarEtiqueta from './CriarEtiqueta';
 import Section from './Section';
-import tags from './__mock__/tags';
 
-const itemsProcessos = [
-  {
-    icon: 'A',
-    label: 'Todos os Processos',
-    count: 5
+const itemsProcessos = ['Todos os Processos'];
+
+class Sidebar extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      etiquetas: []
+    };
   }
-];
 
-const etiquetas = [];
+  adicionarEtiqueta = (nomeEtiqueta) => {
+    this.setState({
+      etiquetas: [...this.state.etiquetas, nomeEtiqueta]
+    });
+  }
 
-const Sidebar = () => {
-  return (
-    <aside>
-      <Section label="Processos" items={itemsProcessos}/>
-      <Section label="Etiquetas" items={tags} />
-
-      <div>
-        <button> Criar Etiqueta </button>
-      </div>
-    </aside>
-  );
+  render() {
+    return(
+      <aside>
+        <Section label="Processos" items={itemsProcessos}/>
+        <Section label="Etiquetas" items={this.state.etiquetas} />
+        <CriarEtiqueta etiquetas={this.state.etiquetas} addEtiqueta={this.adicionarEtiqueta} />
+      </aside>
+    );
+  }
 }
 
 export default Sidebar;
